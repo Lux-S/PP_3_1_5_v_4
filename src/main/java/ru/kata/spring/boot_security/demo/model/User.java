@@ -36,7 +36,7 @@ public class User implements UserDetails {
     private String email;
 
     @Column(name = "password")
-    @Size(min = 3, message = "Password should be min 4 characters")
+    @Size(min = 4, message = "Password should be min 4 characters")
     private String password;
     @ManyToMany
     @JoinTable(name = "users_roles",
