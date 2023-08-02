@@ -43,7 +43,7 @@ public class AdminController {
     }
 
     @PostMapping
-    public ResponseEntity<HttpStatus> createUser(@RequestBody @Valid UserDTO userDTO,
+    public ResponseEntity<HttpStatus> createUser(@RequestBody UserDTO userDTO,
                                                  BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             StringBuilder errorMsg = new StringBuilder();
@@ -63,7 +63,7 @@ public class AdminController {
     }
 
     @PutMapping("/edit")
-    public ResponseEntity<UserDTO> updateUser(@RequestBody @Valid UserDTO userDTO,
+    public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO,
                                               BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             StringBuilder errorMsg = new StringBuilder();
