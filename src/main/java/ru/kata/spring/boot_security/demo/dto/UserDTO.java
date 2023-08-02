@@ -14,14 +14,16 @@ import java.util.TreeSet;
 public class UserDTO {
     private Long id;
 
+    @NotEmpty(message = "Name should not be empty")
     private String username;
-
+    @NotEmpty(message = "Last name should not be empty")
     private String lastName;
-
+    @Min(value = 0, message = "Age is incorrect")
     private int age;
-
+    @Email(message = "Enter correctly email (example@examp.org)")
     private String email;
     @Column(name = "password")
+    @Size(min = 4, message = "Password should be min 4 characters")
     private String password;
     private Set<Role> roles = new TreeSet();
 
