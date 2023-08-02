@@ -22,16 +22,21 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "username", unique = true)
+    @NotEmpty(message = "Name should not be empty")
     private String username;
 
     @Column(name = "last_name")
+    @NotEmpty(message = "Last name should not be empty")
     private String lastName;
     @Column(name = "age")
+    @Min(value = 0, message = "Age is incorrect")
     private int age;
     @Column(name = "email")
+    @Email(message = "Enter correctly email (example@examp.org)")
     private String email;
 
     @Column(name = "password")
+    @Size(min = 3, message = "Password should be min 4 characters")
     private String password;
     @ManyToMany
     @JoinTable(name = "users_roles",
