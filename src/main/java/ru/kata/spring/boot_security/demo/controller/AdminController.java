@@ -30,6 +30,7 @@ public class AdminController {
         this.modelMapper = modelMapper;
     }
 
+
     @GetMapping()
     public ResponseEntity<List<UserDTO>> getUsers() {
         return ResponseEntity.ok(userService.findAll().stream()
@@ -43,7 +44,7 @@ public class AdminController {
     }
 
     @PostMapping
-    public ResponseEntity<HttpStatus> createUser(@RequestBody UserDTO userDTO,
+    public ResponseEntity<HttpStatus> createUser(@RequestBody @Valid UserDTO userDTO,
                                                  BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             StringBuilder errorMsg = new StringBuilder();
@@ -63,7 +64,7 @@ public class AdminController {
     }
 
     @PutMapping("/edit")
-    public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO,
+    public ResponseEntity<UserDTO> updateUser(@RequestBody @Valid UserDTO userDTO,
                                               BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             StringBuilder errorMsg = new StringBuilder();
